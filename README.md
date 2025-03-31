@@ -12,7 +12,7 @@ the [Tailwind CSS IntelliSense extension](https://marketplace.visualstudio.com/i
 Clone this repository and run the following commands in the project directory:
 
 ```
-npm install
-npm run dev
+bun i
+bun run dev
 ```
 

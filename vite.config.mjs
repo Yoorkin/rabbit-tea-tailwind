@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import tailwindcss from 'tailwindcss'
+import tailwindcss from '@tailwindcss/vite'
 import cp from 'node:child_process'
 import fs from 'node:fs'
 
@@ -14,7 +14,7 @@ async function buildMoon() {
                 reject(new Error('moon build failed'))
             }
         })
-    }) 
+    })
 
     fs.copyFileSync('target/js/release/build/main/main.js', './src/main.js')
 }
@@ -30,15 +30,10 @@ const plugin = {
         if (file.endsWith('.mbt')) {
             await buildMoon()
         }
-    }
+    },
 }
 
 export default defineConfig({
     root: 'src',
-    plugins: [plugin],
-    css: {
-        postcss: {
-            plugins: [tailwindcss]
-        }
-    }
+    plugins: [plugin, tailwindcss()],
 })
