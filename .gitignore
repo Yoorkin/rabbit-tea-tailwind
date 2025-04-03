@@ -3,3 +3,5 @@ target/
 node_modules/
 package-lock.json
 src/main.js
+src/main.js.map
+src/dist
